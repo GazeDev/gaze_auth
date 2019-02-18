@@ -1,7 +1,10 @@
 version: '3.1'
 services:
   keycloak:
-    image: jboss/keycloak:4.8.3.Final
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "80:8080"
     env_file:
