@@ -22,3 +22,9 @@ sudo nginx -t
 # To check for typos in you file. If you get no errors, you can restart nginx:
 
 sudo service nginx restart
+
+# Let's Encrypt
+
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install certbot
