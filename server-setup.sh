@@ -13,7 +13,10 @@
 
 # cp variables.env.example variables.env
 
-# Fill out variables.env with the values of your database, replacing anything for accounts.gazepgh.org
+# Fill out variables.env with the values of your database, replacing anything for accounts.gazepgh.org:
+
+# nano variables.env
+
 
 docker-compose build
 
@@ -30,11 +33,16 @@ sudo apt install nginx-full -y
 # Allow access to ports 80 and 443
 sudo ufw allow 'Nginx Full'
 
+# Modify nginx.conf to listen for the right server_name if you need to
+
 # Copy our config to the nginx sites-available directory, with a more specific name
 sudo cp nginx.conf /etc/nginx/sites-available/keycloak
 
 # Symlink keycloak nginx config to sites-enabled to enable it
 sudo ln -sf /etc/nginx/sites-available/keycloak /etc/nginx/sites-enabled
+
+# Remove the default site
+rm /etc/nginx/sites-enabled/default
 
 # To check for typos in your file:
 sudo nginx -t
@@ -53,18 +61,26 @@ sudo certbot --nginx -d accounts.gazepgh.org
 # (N)o sharing of email address
 # 2 - Redirect all requests to https
 
+# To check for typos in your file:
+sudo nginx -t
+
+# If you get no errors, you can restart nginx to apply the changes:
+sudo service nginx restart
+
 # Accessing keycloak
 
-## Start kecloak. The first time this is run it will also build, which may take a while
-docker-compose up -d
+# Generate a kecloak admin user
+docker-compose exec keycloak keycloak/bin/add-user-keycloak.sh -u <USERNAME> -p '<PASSWORD>'
 
-## Allow access to the security admin console from our domain
-docker-compose exec keycloak bash
+docker-compose restart
 
-# cd keycloak/bin
+# Enter the username and password you just used above
 
-# ./kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user admin
+docker-compose exec keycloak keycloak/bin/kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user <USERNAME>
 # Enter password:
 
-# ./kcadm.sh update clients/04ffa8d9-7398-4671-9a8e-3fad5e6adb06 -r master -s 'redirectUris=["https://auth.gazepgh.org/auth/*"]'
-# ./kcadm.sh update clients/04ffa8d9-7398-4671-9a8e-3fad5e6adb06 -r master -s 'redirectUris=["/auth/admin/master/console/*"]'
+# This will print out the clients, find clientId security-admin-console and take note of its id.
+docker-compose exec keycloak keycloak/bin/kcadm.sh get clients
+
+# Replace the <security-admin-console-id-value> and domain in the next command:
+docker-compose exec keycloak keycloak/bin/kcadm.sh update clients/<security-admin-console-id-value> -r master -s 'redirectUris=["https://accounts.gazepgh.org/auth/*"]'
