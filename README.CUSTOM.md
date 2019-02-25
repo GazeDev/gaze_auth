@@ -8,6 +8,4 @@ add the user with the docker(/docker-compose) script. make sure to quote the pas
 
 restart the docker container with `docker-compose restart`
 
-TODO: add https
-
 install nginx
