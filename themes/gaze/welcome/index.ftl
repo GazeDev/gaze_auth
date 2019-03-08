@@ -60,7 +60,7 @@
 
           <p>
             You may be looking to: <br>
-            <a class="btn button btn-primary expanded" href="/auth/realms/gaze-auth/account">Log In, Sign Up, <br> or Reset Your Password</a>
+            <a class="btn button btn-primary expanded" href="/auth/realms/gaze-accounts/account">Log In, Sign Up, <br> or Reset Your Password</a>
           </p>
 
           <p>
