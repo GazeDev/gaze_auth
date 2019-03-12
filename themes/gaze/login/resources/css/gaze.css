@@ -1,3 +1,17 @@
+html {
+  height: 100%;
+  font-size: 100%;
+}
+
+body {
+  color: #222;
+  cursor: auto;
+  font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
 .login-pf body {
   background-image: url("../img/bg.png");
   background-repeat: no-repeat;
@@ -55,7 +69,7 @@
   }
 
     div.kc-logo-text {
-      background-image: url("https://gazepgh.org/img/GazePgh.png");
+      background-image: url("https://gaze.dev/img/Gaze.Dev.png");
       background-size: contain;
       background-position: center;
       margin: auto;

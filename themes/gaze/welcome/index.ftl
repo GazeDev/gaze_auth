@@ -24,7 +24,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | Gaze Pittsburgh</title>
+    <title>Home | Gaze.Dev</title>
     <link rel="icon" href="${resourcesPath}/img/favicon.ico" />
     <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
@@ -41,7 +41,7 @@
     <main role="main">
       <section class="primary">
         <header>
-          <img class="logo" src="https://gazepgh.org/img/GazePgh.png" alt="GazePgh">
+          <img class="logo" src="https://gaze.dev/img/Gaze.Dev.png" alt="GazePgh">
         </header>
 
         <a id="main-content"></a>
@@ -64,7 +64,7 @@
           </p>
 
           <p>
-            <a class="small" href="https://gazepgh.org">Return to GazePgh</a>
+            <a class="small" href="https://gaze.dev">Return to Gaze.Dev</a>
           </p>
         </article>
       </section>

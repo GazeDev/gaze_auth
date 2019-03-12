@@ -41,40 +41,6 @@ body {
   height: auto;
 }
 
-.contain-to-grid {
-  background-color: #fff;
-  padding:0 1rem;
-}
-
-.contain-to-grid .top-bar {
-  color: inherit;
-  background-color: inherit;
-}
-
-.top-bar {
-  height: 4.8125rem;
-  line-height: 4.8125rem;
-}
-
-.top-bar .logo {
-  height: 3.12rem;
-}
-
-.top-bar .name h1 a {
-  color: #27ae9d;
-  font-weight: bold;
-  font-size: 2.0625rem;
-  line-height: 2;
-}
-
-a {
-  color: #27ae9d;
-}
-
-a:hover, a:focus {
-  color: #009e89;
-}
-
 p {
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -111,7 +77,7 @@ section header {
 }
 
 section header img {
-  max-width: 211px;
+  max-width: 226.64px;
   height: auto;
 }
 
@@ -138,6 +104,15 @@ footer {
 
 footer .copyright {
   flex: 1;
+}
+
+footer a {
+  color: #27ae9d;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #009e89;
 }
 
 .btn-primary {
