@@ -55,7 +55,7 @@ sudo add-apt-repository ppa:certbot/certbot -y
 sudo apt-get update
 sudo apt install python-certbot-nginx -y
 
-sudo certbot --nginx -d accounts.gazepgh.org
+sudo certbot --nginx -d accounts.gaze.dev
 # Enter email address...:
 # (A)gree to Terms
 # (N)o sharing of email address
@@ -83,4 +83,4 @@ docker-compose exec keycloak keycloak/bin/kcadm.sh config credentials --server h
 docker-compose exec keycloak keycloak/bin/kcadm.sh get clients
 
 # Replace the <security-admin-console-id-value> and domain in the next command:
-docker-compose exec keycloak keycloak/bin/kcadm.sh update clients/<security-admin-console-id-value> -r master -s 'redirectUris=["https://accounts.gazepgh.org/auth/*"]'
+docker-compose exec keycloak keycloak/bin/kcadm.sh update clients/<security-admin-console-id-value> -r master -s 'redirectUris=["https://accounts.gaze.dev/auth/*"]'
