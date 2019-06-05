@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   keycloak:
-    image: gazedev/keycloak:4.8
+    image: jboss/keycloak:6.0.1
     networks:
       - database
       - gazeauth
@@ -11,6 +11,7 @@ services:
       - variables-local.env
     volumes:
       - ./themes/gaze:/opt/jboss/keycloak/themes/gaze
+      - ./themes/housingdb:/opt/jboss/keycloak/themes/housingdb
     depends_on:
       - postgres
   postgres:
