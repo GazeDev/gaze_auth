@@ -2,10 +2,11 @@ version: '3.1'
 services:
   keycloak:
     restart: always
-    image: gazedev/keycloak:4.8
+    image: jboss/keycloak:6.0.1
     ports:
       - "127.0.0.1:8080:8080"
     env_file:
       - variables.env
     volumes:
       - ./themes/gaze:/opt/jboss/keycloak/themes/gaze
+      - ./themes/housingdb:/opt/jboss/keycloak/themes/housingdb
