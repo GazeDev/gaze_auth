@@ -2,7 +2,7 @@ version: '3.1'
 services:
   keycloak:
     restart: always
-    image: jboss/keycloak:6.0.1
+    image: jboss/keycloak:9.0.2
     ports:
       - "127.0.0.1:8080:8080"
     env_file:

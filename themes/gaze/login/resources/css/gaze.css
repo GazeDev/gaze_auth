@@ -18,6 +18,10 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  padding-top: .1px; /* prevents default margin from shifting body away from html */
+  padding-bottom: .1px;
+  min-height: 100%;
+  height: auto;
 }
 
 .login-pf body::before {
@@ -38,6 +42,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 0 40px 4px #111118;
+  padding-top: 0;
 }
 
 @media (min-width: 520px) {
