@@ -36,6 +36,7 @@ sudo ufw allow 'Nginx Full'
 # Modify nginx.conf to listen for the right server_name if you need to
 
 # Copy our config to the nginx sites-available directory, with a more specific name
+# NOTE: Make sure you don't end this command with a /, it should result in a file named keycloak, not a directory
 sudo cp nginx.conf /etc/nginx/sites-available/keycloak
 
 # Symlink keycloak nginx config to sites-enabled to enable it
@@ -70,17 +71,17 @@ sudo service nginx restart
 # Accessing keycloak
 
 # Generate a kecloak admin user
-docker-compose exec keycloak keycloak/bin/add-user-keycloak.sh -u <USERNAME> -p '<PASSWORD>'
+docker-compose exec keycloak /opt/jboss/keycloak/bin/add-user-keycloak.sh -u <USERNAME> -p '<PASSWORD>'
 
 docker-compose restart
 
 # Enter the username and password you just used above
 
-docker-compose exec keycloak keycloak/bin/kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user <USERNAME>
+docker-compose exec keycloak /opt/jboss/keycloak/bin/kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user <USERNAME>
 # Enter password:
 
 # This will print out the clients, find clientId security-admin-console and take note of its id.
-docker-compose exec keycloak keycloak/bin/kcadm.sh get clients
+docker-compose exec keycloak /opt/jboss/keycloak/bin/kcadm.sh get clients
 
 # Replace the <security-admin-console-id-value> and domain in the next command:
-docker-compose exec keycloak keycloak/bin/kcadm.sh update clients/<security-admin-console-id-value> -r master -s 'redirectUris=["https://accounts.gaze.dev/auth/*"]'
+docker-compose exec keycloak /opt/jboss/keycloak/bin/kcadm.sh update clients/<security-admin-console-id-value> -r master -s 'redirectUris=["https://accounts.gaze.dev/auth/*"]'
