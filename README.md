@@ -22,3 +22,17 @@ add the user with the docker(/docker-compose) script. make sure to quote the pas
 restart the docker container with `docker-compose restart`
 
 install nginx
+
+# Updating Keycloak
+
+```
+docker-compose stop && git pull && docker-compose run -d keycloak --admin-only && docker ps
+docker exec -it gaze_auth_keycloak_run_1 bash
+cd ~/keycloak
+bin/jboss-cli.sh --file=bin/migrate-standalone.cli
+exit
+docker-compose down
+docker-compose up -d
+docker-compose ps
+docker-compose logs --follow
+```

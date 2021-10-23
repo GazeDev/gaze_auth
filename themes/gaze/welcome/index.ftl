@@ -41,7 +41,7 @@
     <main role="main">
       <section class="primary">
         <header>
-          <img class="logo" src="https://gaze.dev/img/Gaze.Dev.png" alt="GazePgh">
+          <img class="logo" src="https://gaze.dev/assets/uploads/Gaze.Dev.png" alt="GazePgh">
         </header>
 
         <a id="main-content"></a>
@@ -90,7 +90,7 @@
 
     <footer role="contentinfo">
       <div class="copyright">
-        &copy; 2018-2019 Gaze LLC. All rights reserved.
+        &copy; 2018-2021 Gaze LLC. All rights reserved.
       </div>
       <div class="admin-login">
         <a href="/auth/admin">Admin login</a>
