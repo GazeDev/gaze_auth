@@ -1,3 +1,4 @@
+/*
 #kc-page-title::after {
   content: "to continue to";
 }
@@ -9,5 +10,14 @@
   background-repeat: no-repeat;
   background-size: contain;
   height: 50px;
-  background-image: url('https://housingdb.org/sites/default/files/HousingDB-By-GazePgh.png');
+  background-image: url('https://pittsburghhousing.org/assets/pittsburgh-housing-logo.png');
+}
+*/
+
+.div.kc-logo-text {
+  background-image: url('https://pittsburghhousing.org/assets/pittsburgh-housing-logo.png');
+}
+
+.card-pf::after {
+  display: block;
 }
